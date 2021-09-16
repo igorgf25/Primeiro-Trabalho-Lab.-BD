@@ -1,0 +1,19 @@
+{
+  "name": "lojabd",
+  "version": "1.0.0",
+  "description": "Backend NodeJS para o app loja",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sql",
+    "server",
+    "node"
+  ],
+  "author": "Igor Guilherme Feliciano e Pedro Fernandes",
+  "license": "MIT",
+  "dependencies": {
+    "mssql": "^7.2.1"
+  }
+}
