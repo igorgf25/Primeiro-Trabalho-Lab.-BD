@@ -1,0 +1,54 @@
+//GET All
+
+Método: GET
+url: localhost:4000/api/produtos/
+
+//GET By ID
+
+Método: GET
+url: localhost:4000/api/produtos/id
+obs: Substitua a palavra id pelo id do produto que deseja pesquisar
+
+//INSERT
+
+Método: POST
+url: localhost:4000/api/produtos/
+Body:
+{
+    "nome": "Feijã",
+    "descricao": "Feijão Camil",
+    "preco_compra": 10.50,
+    "preco_venda": 14.50,
+    "codigo_barras": 1234567899,
+    "data_validade": "2021-06-30"
+}
+
+
+Obs: O metodo update requer um body em formato json de acordo
+com o mostrado acima sendo substituido apenas os valores dos campos com os valores desejados.
+
+
+//UPDATE
+
+Método: PUT
+url: localhost:4000/api/produtos/
+Body:
+{
+    "id": 4,
+    "nome": "Suco",
+    "descricao": "Suco tang",
+    "preco_compra": 10.50,
+    "preco_venda": 14.50,
+    "codigo_barras": 1234567890,
+    "data_validade": "2021-11-28"
+}
+
+Obs: O metodo update requer um body em formato json de acordo
+com o mostrado acima sendo substituido apenas os valores dos campos com os valores desejados.
+
+//DELETE
+
+Método:DELETE
+url: localhost:4000/api/produtos/id
+obs: Substitua a palavra id pelo id do produto que deseja excluir
+
