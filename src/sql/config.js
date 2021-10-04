@@ -7,11 +7,11 @@ export const sqlConfig = {
     server: process.env.DB_SERVER,
     pool: {
         max: 10,
-        min: 0,
+        min:0,
         idleTimeoutMillis: 3000
     },
     options: {
         encrypt: false,
         trustServerCertificate: true
-    }
+     }
     }

@@ -1,21 +1,30 @@
-import sql from 'mssql'
-import { sqlConfig } from './sql/config.js'
+import express from 'express'
+const app = express()
+const port = 4000
 
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.disable('x-powered-by')
 
-sql.on('error', err => {
-    console.error(err)
+import rotasProdutos from './routes/produtos.js'
+
+app.use('/api/produtos', rotasProdutos)
+
+app.get('/api', (req, res) => {
+    res.status(200).json({
+        mensagem: 'Api funcionando!',
+        versao: '1.0.0'
+    })
 })
 
-sql.connect(sqlConfig).then(pool => {
-    return pool.request()
-    .input('nome', sql.VarChar(100) , 'Arroz')
-    .input('descricao', sql.VarChar(500) , 'Arroz Canil')
-    .input('preco_compra', sql.Numeric , 10.50)
-    .input('preco_venda', sql.Numeric , 14.50)
-    .input('codigo_barras', sql.BigInt , 1234567890)
-    .execute('SP_I_LOJ_PRODUTO')
-}).then(result => {
-    console.log(result)
-}).catch(err => {
-    console.log(err.message)
+app.use('/', express.static('public'))
+
+app.use(function(req, res){
+    res.status(404).json({
+        mensagem: `A rota ${req.originalUrl} não existe!`
+    })
+})
+
+app.listen(port, function(){
+    console.log(`Servidor web rodando na porta ${port}`)
 })
